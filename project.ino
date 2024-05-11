@@ -57,7 +57,6 @@ void u_turn();
 void two_consec_turns_right();
 void two_consec_turns_left();
 void stop_moving();
-void waypoint_challenge(float *colourArray);
 void play_victory_sound();
 
 void setBalance(){
@@ -85,6 +84,7 @@ void setBalance(){
     // done scanning white, time for the black sample.
     // set black balance
     Serial.println("Put Black Sample For Calibration ...");
+
     //delay for five seconds for getting sample ready 
     delay(5000);  
 
@@ -177,12 +177,12 @@ void loop(){
    
         // check colour of paper
         for (int c = 0; c <= 2; c++) { 
-        on_LED(c);
-        delay(RGBWait);
-        colourArray[c] = getAvgReading(5);
-        colourArray[c] = (colourArray[c] - blackArray[c])/(greyDiff[c])*255;
-        delay(RGBWait);
-    } 
+            on_LED(c);
+            delay(RGBWait);
+            colourArray[c] = getAvgReading(5);
+            colourArray[c] = (colourArray[c] - blackArray[c])/(greyDiff[c])*255;
+            delay(RGBWait);
+        } 
 
     check_colour(colourArray); // check what to do at the waypoint
     }
@@ -214,8 +214,10 @@ void check_colour(float *colourArray){
 
         // play completion music
         play_victory_sound(); 
+
         // delay for approximately 16.5 minutes to prevent mBot from moving after finishing the challenge
         delay(1000000); 
+
     } else if (colourArray[0] >= 350) { 
         // here, the R value matches red and orange
         if (colourArray[1] >= 0) { 
@@ -224,6 +226,7 @@ void check_colour(float *colourArray){
         } else {
             turn_left();
         }
+
     } else if (colourArray[0] >= 150) { 
         // here, the R value matches blue and purple
         if (colourArray[1] >= 50) { 
@@ -233,6 +236,7 @@ void check_colour(float *colourArray){
             // should be purple detected if this branch is reached
             two_consec_turns_left(); 
         }
+        
     } else {
         // only green remaining
         turn_right(); 
