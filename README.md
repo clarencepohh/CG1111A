@@ -17,6 +17,6 @@ The goal of the project was to create a robot that could traverse a maze, using 
 I believe the run was timed, and you had penalties if your robot was unable to correctly detect a color, or if your robot collided with a wall. 
 
 ## Reminders
-Please do take note of NUS' Plagiarism Policy when referring to this repository. I have uploaded these files for archival purposes and to help any struggling juniors if needed. Please refer, not copy.
+Please do take note of NUS' Plagiarism Policy when referring to this repository. I have uploaded these files for archival purposes and to help any struggling juniors if needed. (Although in this case you might be better off looking at other code.) Please refer, not copy.
 
 If any part of my project is used in yours, please credit us. Let me know if any of the code was useful to you! I would be glad to hear from you.
